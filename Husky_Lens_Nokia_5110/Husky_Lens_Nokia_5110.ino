@@ -43,7 +43,7 @@ void setup() {
 void loop() {
     if (!huskylens.request()) Serial.println(F("Fail to request data from HUSKYLENS, recheck the connection!"));
     else if(!huskylens.isLearned()) Serial.println(F("Nothing learned, press learn button on HUSKYLENS to learn one!"));
-    else if(!huskylens.available()) Serial.println(F("No block or arrow appears on the screen!"));
+    //else if(!huskylens.available()) Serial.println(F("No block or arrow appears on the screen!"));
     else
     {
         //Serial.println(F("###########"));
@@ -64,7 +64,7 @@ void printResult(HUSKYLENSResult result){
         yString = result.yCenter;
         yInteger = (yString.toInt());
         //Serial.println(yInteger);
-      if (result.ID==1 && 140 < xInteger && xInteger < 160 && 110 < yInteger && yInteger > 140) {
+      if (result.ID==1 && 90 < xInteger && xInteger < 180 && 80 < yInteger && yInteger < 160) {
         display.clearDisplay();
         
         multiply = xInteger*yInteger*5;
